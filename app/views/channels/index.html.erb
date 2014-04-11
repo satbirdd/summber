@@ -12,7 +12,7 @@
   <tbody>
     <% @channels.each do |channel| %>
       <tr>
-        <td><%= channel.owner %></td>
+        <td><%= channel.owner.email %></td>
         <td><%= channel.name %></td>
         <td><%= link_to 'Show', channel %></td>
         <td><%= link_to 'Edit', edit_channel_path(channel) %></td>

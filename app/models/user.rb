@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :channels
+  has_many :channels, foreign_key: 'owner_id'
   has_and_belongs_to_many :joined_channels, class_name: 'Channel'
 end
