@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411083315) do
+ActiveRecord::Schema.define(version: 20140411084204) do
+
+  create_table "channels", force: true do |t|
+    t.integer  "owner_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "channels", ["owner_id"], name: "index_channels_on_owner_id"
+
+  create_table "channels_users", id: false, force: true do |t|
+    t.integer "channel_id", null: false
+    t.integer "user_id",    null: false
+  end
 
   create_table "users", force: true do |t|
     t.string   "login"
